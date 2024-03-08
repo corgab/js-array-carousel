@@ -1,18 +1,18 @@
-* {
+/* * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-img {
-    max-width: 100%;
-}
-
-.container {
+#app {
     height: 100vh;
 }
 
-.slider {
+img {
+    width: 100%;
+}
+
+.container {
     width: 50vw;
     position: relative;
     left: 50%;
@@ -21,7 +21,7 @@ img {
 }
 
 .item {
-    display: block;
+    display: none;
 }
 
 .active {
@@ -49,4 +49,52 @@ img {
 .next {
     bottom: 10px;
     left: 50%;
+} */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+.container {
+    width: 400px;
+    margin: 0 auto;
+}
+
+.slider {
+    position: relative;
+    margin-top: 75px;
+}
+
+.next, .prev {
+    position: absolute;
+    border-radius: 50%;
+    background-color: red;
+    padding: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.prev {
+    top: 10px;
+}
+
+.next {
+    bottom: 10px;
+}
+
+
+/* JS */
+.item {
+    display: none;
+}
+
+.active {
+    display: block;
 }

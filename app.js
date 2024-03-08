@@ -6,29 +6,61 @@ const imageList = [
 'img/05.webp', ]
 
 // stampare codice html con for ed inserire singola immagine
-const itemcontainerElement = document.querySelector(".item-container")
+const itemContainerElement = document.querySelector(".item-container")
+const nextElement = document.querySelector(".next") // element
+const previewElement = document.querySelector(".prev") // element
 
-let contents = ""
-let immagineSingola = ""
+let contents = "";
+let currentItemIndex = 0;
 
 //ciclo for prendere singola immagine
 for(let i = 0; i < imageList.length; i++) {
-    
+
     //prendere singola immagine dall'array
-    immagineSingola= imageList[i]
-    
-    //far ripetere il contents
-    console.log(contents)
+    const img = imageList[i];
 
-
+    //codice per il dom
+    if(i == currentItemIndex) {
+        contents = `
+        <div class="item active">
+            <img src="${img}" alt="">
+        </div>
+        `
+    } else {
+        contents += `
+        <div class="item">
+            <img src="${img}" alt="">
+        </div>
+        `
+    }
 }
 //inserire il codice sul dom
+itemContainerElement.innerHTML += contents
 
-contents = itemcontainerElement.innerHTML = `
-    <div class="item">
-        <img src="${immagineSingola}" alt="">
-    </div>
-`
+//click avanti
+nextElement.addEventListener("click", function(){
+    const activeElement = document.querySelector(".active")
+    activeElement.classList.remove("active")
 
-console.log(contents)
+    const allItem = document.querySelectorAll(".item")
+    currentItemIndex = currentItemIndex + 1
 
+    const currentItem = allItem[currentItemIndex]
+    currentItem.classList.add("active")
+
+
+})
+
+//click indietro
+previewElement.addEventListener("click", function(){
+    const activeElement = document.querySelector(".active")
+    activeElement.classList.remove("active")
+
+    const allItem = document.querySelectorAll(".item")
+    currentItemIndex = currentItemIndex - 1
+
+    const currentItem = allItem[currentItemIndex]
+    currentItem.classList.add("active")
+    
+
+})
