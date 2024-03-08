@@ -1,0 +1,52 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+}
+
+.container {
+    height: 100vh;
+}
+
+.slider {
+    width: 50vw;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.item {
+    display: block;
+}
+
+.active {
+    display: block;
+}
+
+.item-container {
+    position: relative;
+}
+
+
+.preview, .next {
+    position: absolute;
+    padding: 10px;
+    background-color: rgb(193, 193, 193);
+    border-radius: 100%;
+}
+
+
+.preview {
+    top: 10px;
+    left: 50%;
+}
+
+.next {
+    bottom: 10px;
+    left: 50%;
+}
